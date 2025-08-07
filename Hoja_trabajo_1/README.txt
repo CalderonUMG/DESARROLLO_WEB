@@ -1,7 +1,7 @@
-Hoja de trabajo numero 1
-practica de etiquetas HTML 
+Hoja de trabajo numero 1.5
+practica de etiquetas CSS 
 
-https://hojatrabajo1calderon.netlify.app/
+
 
 Maria Luisa Fernanda Calderon Molina
 9490-23-9993

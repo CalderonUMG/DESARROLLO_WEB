@@ -1,0 +1,94 @@
+body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        h1 {
+            color: #006400;
+            text-align: center;
+            padding: 20px;
+            background-color: #e0ffe0;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        img {
+            display: block;
+            max-width: 80%;
+            height: auto;
+            margin: 0 auto 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        ol {
+            margin: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-left: 5px solid #006400;
+            border-radius: 5px;
+        }
+
+        ol li {
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        ol li a {
+            color: #006400;
+            text-decoration: none;
+        }
+
+        ol li a:hover {
+            text-decoration: underline;
+        }
+
+        dl {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-left: 5px solid #2e8b57;
+            border-radius: 5px;
+        }
+
+        dt {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2e8b57;
+            margin-bottom: 10px;
+        }
+
+        dd {
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #e0ffe0;
+            color: #444;
+            font-size: 0.9em;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ccc;
+            margin: 20px 0;
+        }
+
+        /* Sección individual para cada div */
+        #caracteristica, #atractivo {
+            margin: 30px 40px;
+            padding: 15px;
+            background-color: #fafafa;
+            border-radius: 8px;
+        }
