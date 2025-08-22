@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 30px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.btn-container {
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.contenedor {
+    display: none;
+    /* Oculto por defecto */
+    margin-top: 20px;
+}
+
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 60%;
+}
+
+th,
+td {
+    border: 1px solid #333;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+#comentarios {
+    margin-top: 40px;
+    text-align: left;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#comentarios h3 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.comentario {
+    background: #f9f9f9;
+    border-left: 5px solid #4CAF50;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-style: italic;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    margin-top: auto;
+}
+
+footer a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Itinerarios</title>
+    <script src="js/index.js" defer></script>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+
+    <h1>Itinerarios de Viaje</h1>
+
+    <div class="btn-container">
+        <button onclick="mostrarTabla(1)">Itinerario 1</button>
+        <button onclick="mostrarTabla(2)">Itinerario 2</button>
+        <button onclick="mostrarTabla(3)">Itinerario 3</button>
+    </div>
+
+    <!-- Contenedor 1 -->
+    <div id="contenedor1" class="contenedor">
+        <h2>Itinerario Día 1</h2>
+        <table>
+            <tr>
+                <th>Hora</th>
+                <th>Actividad</th>
+                <th>Lugar</th>
+            </tr>
+            <tr>
+                <td>08:00</td>
+                <td>Desayuno</td>
+                <td>Hotel</td>
+            </tr>
+            <tr>
+                <td>10:00</td>
+                <td>Visita guiada</td>
+                <td>Museo Nacional</td>
+            </tr>
+            <tr>
+                <td>13:00</td>
+                <td>Almuerzo</td>
+                <td>Restaurante El Sol</td>
+            </tr>
+            <tr>
+                <td>15:00</td>
+                <td>Paseo</td>
+                <td>Parque Central</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Contenedor 2 -->
+    <div id="contenedor2" class="contenedor">
+        <h2>Itinerario Día 2</h2>
+        <table>
+            <tr>
+                <th>Hora</th>
+                <th>Actividad</th>
+                <th>Lugar</th>
+            </tr>
+            <tr>
+                <td>09:00</td>
+                <td>Check-in</td>
+                <td>Aeropuerto</td>
+            </tr>
+            <tr>
+                <td>11:00</td>
+                <td>Vuelo</td>
+                <td>Ciudad A - Ciudad B</td>
+            </tr>
+            <tr>
+                <td>14:00</td>
+                <td>Traslado</td>
+                <td>Hotel</td>
+            </tr>
+            <tr>
+                <td>19:00</td>
+                <td>Cena</td>
+                <td>Restaurante Gourmet</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Contenedor 3 -->
+    <div id="contenedor3" class="contenedor">
+        <h2>Itinerario Día 3</h2>
+        <table>
+            <tr>
+                <th>Hora</th>
+                <th>Actividad</th>
+                <th>Lugar</th>
+            </tr>
+            <tr>
+                <td>07:00</td>
+                <td>Ejercicio</td>
+                <td>Gimnasio del Hotel</td>
+            </tr>
+            <tr>
+                <td>09:00</td>
+                <td>Conferencia</td>
+                <td>Centro de Convenciones</td>
+            </tr>
+            <tr>
+                <td>12:30</td>
+                <td>Almuerzo de negocios</td>
+                <td>Restaurante Ejecutivo</td>
+            </tr>
+            <tr>
+                <td>16:00</td>
+                <td>Networking</td>
+                <td>Lobby del Hotel</td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="comentarios">
+        <h3>Comentarios de viajeros</h3>
+        <div id="listaComentarios"></div>
+        <button onclick="mostrarComentarios()">🔄 Ver otros comentarios</button>
+    </div>
+
+    <footer>
+        <p>¿Quieres ponerte en contacto con nosotros?
+            <a href="contacto.html">Ir a la página de contacto</a>
+        </p>
+    </footer>
+
+</body>
+
+</html>
