@@ -20,7 +20,7 @@ export default function Registro() {
         e.preventDefault();
 
         try {
-            const response = await fetch("http://localhost:4000/api/registro", {
+            const response = await fetch("https://desarrollo-web-1nh5.onrender.com/api/registro", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(user),
