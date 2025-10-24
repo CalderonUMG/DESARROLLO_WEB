@@ -1,0 +1,115 @@
+@import '../../styles/variables';
+
+.login-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, $color-fondo 60%, lighten($color-primario, 10%) 100%);
+  padding: 2rem;
+}
+
+.login-box {
+  background: white;
+  padding: 3rem 3.5rem;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+
+  h2 {
+    color: $color-primario;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: darken($color-texto, 10%);
+    margin-bottom: 2rem;
+  }
+
+  .form-group {
+    text-align: left;
+    margin-bottom: 1.5rem;
+
+    label {
+      display: block;
+      font-weight: 600;
+      color: $color-primario;
+      margin-bottom: 0.3rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 2px solid $color-borde;
+      border-radius: 10px;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s ease;
+
+      &:focus {
+        border-color: $color-secundario;
+      }
+    }
+  }
+
+  .btn-login {
+    width: 100%;
+    background-color: $color-primario;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 0.9rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $color-secundario;
+      color: $color-primario;
+    }
+  }
+
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .login-box {
+    padding: 2rem;
+
+    h2 {
+      font-size: 1.7rem;
+    }
+  }
+}
+
+.create-account {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+
+  a {
+    color: $color-secundario;
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,51 @@
+@import '../../styles/variables';
+
+/* ============================= */
+/* 🔹 Contenedor principal */
+/* ============================= */
+.admin-home {
+  min-height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    $color-fondo,
+    lighten($color-primario, 60%),
+    $color-primario
+  );
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================= */
+/* 🔹 Contenido central */
+/* ============================= */
+.admin-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* ============================= */
+/* 🔹 Tarjeta central */
+/* ============================= */
+.admin-card {
+  background-color: $color-fondo;
+  border-radius: 16px;
+  padding: 2rem 3rem;
+  max-width: 800px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+
+  h2 {
+    color: $color-primario;
+    margin-bottom: 1rem;
+    font-size: $titulo-seccion;
+  }
+
+  p {
+    color: $color-texto;
+    line-height: 1.6;
+    font-size: $texto-base;
+  }
+}

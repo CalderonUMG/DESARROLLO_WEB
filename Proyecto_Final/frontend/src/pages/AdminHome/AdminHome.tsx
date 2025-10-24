@@ -1,0 +1,61 @@
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import Navbar from "../../components/NavbarAdmin/NavbarAdmin";
+import "./AdminHome.scss";
+
+const AdminHome: React.FC = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    // Si no hay token, redirigir inmediatamente
+    if (!token) {
+      navigate("/login");
+      return;
+    }
+
+    // Validar token en el backend
+    const verificarToken = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/api/auth/verify", {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        // Si el backend responde con error, forzar logout
+        if (!response.ok) {
+          localStorage.removeItem("token");
+          localStorage.removeItem("usuario");
+          navigate("/login");
+        }
+      } catch (error) {
+        console.error("Error al verificar token:", error);
+        localStorage.removeItem("token");
+        localStorage.removeItem("usuario");
+        navigate("/login");
+      }
+    };
+
+    verificarToken();
+  }, [navigate]);
+
+  return (
+    <div className="admin-home">
+      <main className="admin-content">
+        <div className="admin-card">
+          <h2>Panel de Administración</h2>
+          <p>
+            Desde este panel podrás gestionar las campañas, registrar candidatos,
+            administrar votaciones y generar reportes del sistema de votación del{" "}
+            <strong>Colegio de Ingenieros de Guatemala</strong>.
+          </p>
+        </div>
+      </main>
+    </div>
+  );
+};
+
+export default AdminHome;

@@ -1,0 +1,110 @@
+@import '../../styles/variables';
+
+.votacion-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, $color-fondo, lighten($color-primario, 55%), $color-primario);
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2rem;
+}
+
+/* === NAVBAR SUPERIOR (mismo estilo que HomeUsuario) === */
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $color-primario;
+  color: $color-fondo;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  .btn-volver {
+    background-color: $color-secundario;
+    color: $color-fondo;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background-color: darken($color-secundario, 10%);
+    }
+  }
+}
+
+/* === GRÁFICA === */
+.grafica-section {
+  text-align: center;
+  padding: 2rem 3rem;
+
+  h2 {
+    color: $color-primario;
+    margin-bottom: 1rem;
+  }
+}
+
+/* === CANDIDATOS === */
+.candidatos-section {
+  padding: 2rem 3rem;
+
+  h2 {
+    color: $color-primario;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .candidatos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    justify-content: center;
+  }
+
+  .candidato-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.2s ease;
+
+    &.seleccionado {
+      border: 3px solid $color-secundario;
+      box-shadow: 0 0 10px rgba($color-secundario, 0.5);
+    }
+
+    h3 {
+      color: $color-primario;
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    p {
+      color: $color-texto;
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .btn-votar {
+      background-color: $color-secundario;
+      color: $color-fondo;
+      border: none;
+      border-radius: 8px;
+      padding: 0.6rem 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease;
+
+      &:hover:not(:disabled) {
+        background-color: darken($color-secundario, 10%);
+      }
+
+      &:disabled {
+        background-color: lighten($color-secundario, 20%);
+        cursor: not-allowed;
+      }
+    }
+  }
+}
