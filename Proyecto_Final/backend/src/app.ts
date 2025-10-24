@@ -15,7 +15,7 @@ const app = express();
 
 // ✅ Configuración CORS
 app.use(cors({
-  origin: 'http://localhost:3001', // dominio del frontend
+  origin: 'https://desarrollo-web-1-nrm7.onrender.com', // dominio del frontend
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));

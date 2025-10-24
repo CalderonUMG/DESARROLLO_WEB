@@ -30,7 +30,7 @@ const HomeUsuario: React.FC = () => {
 
       try {
         // 🔹 Verificar token en backend
-        const res = await fetch("http://localhost:3000/api/auth/verify", {
+        const res = await fetch("https://desarrollo-web-1nh5.onrender.com/api/auth/verify", {
           method: "GET",
           headers: { Authorization: `Bearer ${token}` },
         });
@@ -60,7 +60,7 @@ const HomeUsuario: React.FC = () => {
   // 🔹 Obtener campañas con estado habilitado
   const cargarCampaniasHabilitadas = async (token: string) => {
     try {
-      const response = await fetch("http://localhost:3000/api/campanias/habilitadas", {
+      const response = await fetch("https://desarrollo-web-1nh5.onrender.com/api/campanias/habilitadas", {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
       });

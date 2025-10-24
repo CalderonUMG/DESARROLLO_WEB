@@ -29,7 +29,7 @@ const CandidatosPage: React.FC = () => {
 
       try {
         // ✅ Verificar token
-        const response = await fetch("http://localhost:3000/api/auth/verify", {
+        const response = await fetch("https://desarrollo-web-1nh5.onrender.com/api/auth/verify", {
           method: "GET",
           headers: { Authorization: `Bearer ${token}` },
         });
@@ -58,7 +58,7 @@ const CandidatosPage: React.FC = () => {
 
   const cargarCampaniasActivas = async (token: string) => {
     try {
-      const response = await fetch("http://localhost:3000/api/campanias/activas", {
+      const response = await fetch("https://desarrollo-web-1nh5.onrender.com/api/campanias/activas", {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
       });

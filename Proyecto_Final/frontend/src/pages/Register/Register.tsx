@@ -27,7 +27,7 @@ const Register: React.FC = () => {
     e.preventDefault();
     try {
       const res = await axios.post<CrearUsuarioResponse>(
-        "http://localhost:3000/api/usuarios/crear",
+        "https://desarrollo-web-1nh5.onrender.com/api/usuarios/crear",
         form
       );
 

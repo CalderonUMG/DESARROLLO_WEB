@@ -26,7 +26,7 @@ const AgregarCandidato: React.FC = () => {
       }
 
       try {
-        const response = await fetch("http://localhost:3000/api/auth/verify", {
+        const response = await fetch("https://desarrollo-web-1nh5.onrender.com/api/auth/verify", {
           method: "GET",
           headers: { Authorization: `Bearer ${token}` },
         });
@@ -53,7 +53,7 @@ const AgregarCandidato: React.FC = () => {
   const cargarCandidatos = async (token: string) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/candidatos/${campania.id}`,
+        `https://desarrollo-web-1nh5.onrender.com/api/candidatos/${campania.id}`,
         {
           method: "GET",
           headers: { Authorization: `Bearer ${token}` },
@@ -83,7 +83,7 @@ const AgregarCandidato: React.FC = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:3000/api/candidatos/agregar", {
+      const response = await fetch("https://desarrollo-web-1nh5.onrender.com/api/candidatos/agregar", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -114,7 +114,7 @@ const AgregarCandidato: React.FC = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:3000/api/candidatos/${campania.id}/${colegiado}`,
+        `https://desarrollo-web-1nh5.onrender.com/api/candidatos/${campania.id}/${colegiado}`,
         {
           method: "DELETE",
           headers: { Authorization: `Bearer ${token}` },

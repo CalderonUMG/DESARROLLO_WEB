@@ -18,7 +18,7 @@ const AdminHome: React.FC = () => {
     // Validar token en el backend
     const verificarToken = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/auth/verify", {
+        const response = await fetch("https://desarrollo-web-1nh5.onrender.com/api/auth/verify", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,

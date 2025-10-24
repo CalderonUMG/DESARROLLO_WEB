@@ -29,7 +29,7 @@ const CampaniaPage: React.FC = () => {
       }
 
       try {
-        const response = await fetch("http://localhost:3000/api/auth/verify", {
+        const response = await fetch("https://desarrollo-web-1nh5.onrender.com/api/auth/verify", {
           method: "GET",
           headers: { Authorization: `Bearer ${token}` },
         });
@@ -59,7 +59,7 @@ const CampaniaPage: React.FC = () => {
   // ✅ Cargar campañas reales desde el backend
   const cargarCampanias = async (token: string) => {
     try {
-      const response = await fetch("http://localhost:3000/api/campanias", {
+      const response = await fetch("https://desarrollo-web-1nh5.onrender.com/api/campanias", {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
       });

@@ -26,7 +26,7 @@ const NuevaCampania: React.FC = () => {
       }
 
       try {
-        const response = await fetch("http://localhost:3000/api/auth/verify", {
+        const response = await fetch("https://desarrollo-web-1nh5.onrender.com/api/auth/verify", {
           method: "GET",
           headers: { Authorization: `Bearer ${token}` },
         });
@@ -82,7 +82,7 @@ const NuevaCampania: React.FC = () => {
       const creador = usuario ? JSON.parse(usuario).colegiado : null; // ⚠️ asegurate que este campo exista
 
 
-      const response = await fetch("http://localhost:3000/api/campanias/crear", {
+      const response = await fetch("https://desarrollo-web-1nh5.onrender.com/api/campanias/crear", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

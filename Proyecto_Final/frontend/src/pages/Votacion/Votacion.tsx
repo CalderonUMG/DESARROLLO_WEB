@@ -45,7 +45,7 @@ const Votacion: React.FC = () => {
 
       try {
         // Verificar voto
-        const res = await fetch(`http://localhost:3000/api/votacion/verificar/${campania.id}/${idUsuario}`, {
+        const res = await fetch(`https://desarrollo-web-1nh5.onrender.com/api/votacion/verificar/${campania.id}/${idUsuario}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -71,7 +71,7 @@ const Votacion: React.FC = () => {
   const cargarCandidatos = async (token: string, idcampania: number) => {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/votacion/candidatos/${idcampania}`,
+        `https://desarrollo-web-1nh5.onrender.com/api/votacion/candidatos/${idcampania}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       const data = await res.json();
@@ -94,7 +94,7 @@ const Votacion: React.FC = () => {
     const userData = JSON.parse(usuario!);
 
     try {
-      const res = await fetch("http://localhost:3000/api/votacion/registrar", {
+      const res = await fetch("https://desarrollo-web-1nh5.onrender.com/api/votacion/registrar", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
