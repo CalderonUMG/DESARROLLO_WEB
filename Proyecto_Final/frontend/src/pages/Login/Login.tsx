@@ -2,7 +2,8 @@ import './Login.scss';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 
 
 const Login = () => {
@@ -20,7 +21,7 @@ const Login = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://desarrollo-web-1nh5.onrender.com/api/auth/login", {
+      const response = await fetch("http://localhost:3000/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -118,7 +119,7 @@ const Login = () => {
           </button>
 
           <p className="create-account">
-            ¿No tiene una cuenta? <a href="/register">Cree una aquí</a>
+            ¿No tiene una cuenta? <Link to="/register">Cree una aquí</Link>
           </p>
         </form>
       </div>
