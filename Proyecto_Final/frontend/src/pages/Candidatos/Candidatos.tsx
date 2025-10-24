@@ -28,7 +28,6 @@ const CandidatosPage: React.FC = () => {
       }
 
       try {
-        // ✅ Verificar token
         const response = await fetch("https://desarrollo-web-1nh5.onrender.com/api/auth/verify", {
           method: "GET",
           headers: { Authorization: `Bearer ${token}` },
@@ -41,7 +40,6 @@ const CandidatosPage: React.FC = () => {
           return;
         }
 
-        // ✅ Token válido → cargar campañas activas
         await cargarCampaniasActivas(token);
       } catch (error) {
         console.error("Error al verificar token:", error);
@@ -69,7 +67,7 @@ const CandidatosPage: React.FC = () => {
       setCampanias(data);
     } catch (error) {
       console.error("Error al cargar campañas activas:", error);
-      alert("❌ No se pudieron cargar las campañas activas");
+      alert("No se pudieron cargar las campañas activas");
     }
   };
 

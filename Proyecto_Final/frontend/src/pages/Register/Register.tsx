@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"; // ✅ Importa el hook
+import { useNavigate } from "react-router-dom";
 import "./Register.scss";
 import { CrearUsuarioResponse } from "../../interface/usuario.interface";
 
 const Register: React.FC = () => {
-  const navigate = useNavigate(); // ✅ Inicializa el hook
+  const navigate = useNavigate();
 
   const [form, setForm] = useState({
     colegiado: "",
@@ -34,7 +34,6 @@ const Register: React.FC = () => {
       setMensaje(res.data.mensaje);
       setExito(true);
 
-      // ✅ Espera 1.5 segundos y redirige a Home
       setTimeout(() => {
         navigate("/");
       }, 1500);

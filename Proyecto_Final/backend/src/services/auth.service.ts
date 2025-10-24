@@ -31,20 +31,13 @@ export class AuthService {
       throw new Error("Contraseña incorrecta");
     }
 
-    // ✅ Crear token JWT (tipado correcto)
     const payload = {
       id: user.getDataValue("id_usuario"),
       colegiado: user.getDataValue("colegiado"),
-      rol: user.getDataValue("rol"), // 👈 Asegúrate de que el modelo tenga esta columna
+      rol: user.getDataValue("rol"),
     };
 
     const token = jwt.sign(payload, JWT_SECRET as jwt.Secret, { expiresIn: JWT_EXPIRES_IN } as jwt.SignOptions);
-
-    /*const token = jwt.sign(
-      payload,
-      JWT_SECRET as jwt.Secret, // 👈 fuerza el tipo correctamente
-      { expiresIn: JWT_EXPIRES_IN } as jwt.SignOptions // 👈 fuerza SignOptions
-    );*/
 
     return {
       message: "Inicio de sesión exitoso",
@@ -53,7 +46,7 @@ export class AuthService {
         id: user.getDataValue("id_usuario"),
         nombre: user.getDataValue("nombre"),
         colegiado: user.getDataValue("colegiado"),
-        rol: user.getDataValue("rol"), // 👈 importante
+        rol: user.getDataValue("rol"),
       },
     };
   }

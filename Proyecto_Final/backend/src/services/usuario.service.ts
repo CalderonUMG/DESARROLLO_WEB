@@ -11,7 +11,6 @@ export class UsuarioService {
     contrasena: string;
   }) {
     const { colegiado, nombre, email, dpi, fechanacimiento, contrasena } = data;
-    console.log(data)
 
     // existe el DPI o el correo
     const existente = await Usuario.findOne({ where: { dpi } });
@@ -39,10 +38,8 @@ export class UsuarioService {
       );
     }
 
-    // 4️⃣ Cifrar la contraseña
     const hash = await bcrypt.hash(contrasena, 10);
 
-    // 5️⃣ Crear usuario
     const nuevo = await Usuario.create({
       colegiado,
       nombre,

@@ -15,7 +15,6 @@ const NuevaCampania: React.FC = () => {
 
   const [loading, setLoading] = useState(true);
 
-  // ✅ Validar token antes de cargar la página
   useEffect(() => {
     const verificarToken = async () => {
       const token = localStorage.getItem("token");
@@ -52,7 +51,6 @@ const NuevaCampania: React.FC = () => {
 
   if (loading) return <p>Cargando...</p>;
 
-  // ✅ Manejo del formulario
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
@@ -60,7 +58,6 @@ const NuevaCampania: React.FC = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  // ✅ Guardar campaña
   const handleGuardar = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -72,14 +69,14 @@ const NuevaCampania: React.FC = () => {
     }
 
     if (new Date(fechainicio) > new Date(fechafin)) {
-      alert("❌ La fecha de inicio no puede ser mayor que la fecha de fin.");
+      alert("La fecha de inicio no puede ser mayor que la fecha de fin.");
       return;
     }
 
     try {
       const token = localStorage.getItem("token");
       const usuario = localStorage.getItem("usuario");
-      const creador = usuario ? JSON.parse(usuario).colegiado : null; // ⚠️ asegurate que este campo exista
+      const creador = usuario ? JSON.parse(usuario).colegiado : null;
 
 
       const response = await fetch("https://desarrollo-web-1nh5.onrender.com/api/campanias/crear", {
@@ -102,7 +99,7 @@ const NuevaCampania: React.FC = () => {
 
       if (!response.ok) throw new Error(data.message);
 
-      alert("✅ Campaña creada correctamente");
+      alert("Campaña creada correctamente");
       navigate("/admin/campanias");
     } catch (error: any) {
       console.error(error);

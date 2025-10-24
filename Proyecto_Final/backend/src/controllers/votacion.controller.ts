@@ -3,7 +3,6 @@ import { CandidatoCampania } from "../models/CandidatoCampania.js";
 import { UsuarioVoto } from "../models/UsuarioVoto.js";
 import { Usuario } from "../models/Usuario.js";
 
-/** 🔹 Verificar si el usuario ya votó en la campaña */
 export const verificarVoto = async (req: Request, res: Response) => {
   try {
     const { idcampania, idusuario } = req.params;
@@ -22,12 +21,10 @@ export const verificarVoto = async (req: Request, res: Response) => {
   }
 };
 
-/** 🔹 Registrar voto */
 export const registrarVoto = async (req: Request, res: Response) => {
   try {
     const { idusuario, idcampania, idcandidato } = req.body;
 
-    // Verificar si ya votó
     const yaVoto = await UsuarioVoto.findOne({
       where: { idusuario, idcandidatocampaniacampania: idcampania }
     });
@@ -36,7 +33,6 @@ export const registrarVoto = async (req: Request, res: Response) => {
       return res.status(400).json({ message: "El usuario ya votó en esta campaña" });
     }
 
-    // Registrar el voto
     await UsuarioVoto.create({
       idusuario,
       idcandidatocampaniacampania: idcampania,

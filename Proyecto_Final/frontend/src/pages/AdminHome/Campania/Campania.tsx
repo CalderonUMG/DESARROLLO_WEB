@@ -7,7 +7,7 @@ interface Campania {
   id: number;
   nombre: string;
   descripcion: string;
-  cantidadvotos: number; // 👈 debe coincidir con tu modelo
+  cantidadvotos: number;
   estado: string;
   fechainicio: string;
   fechafin: string;
@@ -56,7 +56,6 @@ const CampaniaPage: React.FC = () => {
     verificarToken();
   }, [navigate]);
 
-  // ✅ Cargar campañas reales desde el backend
   const cargarCampanias = async (token: string) => {
     try {
       const response = await fetch("https://desarrollo-web-1nh5.onrender.com/api/campanias", {
@@ -70,7 +69,7 @@ const CampaniaPage: React.FC = () => {
       setCampanias(data);
     } catch (error) {
       console.error("Error al cargar campañas:", error);
-      alert("❌ No se pudieron cargar las campañas");
+      alert("No se pudieron cargar las campañas");
     }
   };
 

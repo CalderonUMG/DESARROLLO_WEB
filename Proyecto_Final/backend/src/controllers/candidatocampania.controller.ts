@@ -2,9 +2,6 @@ import { Request, Response } from "express";
 import { CandidatoCampania } from "../models/CandidatoCampania.js";
 import { Usuario } from "../models/Usuario.js";
 
-/**
- * 🔹 Agregar candidato a una campaña
- */
 export const agregarCandidato = async (req: Request, res: Response) => {
   try {
     const { idcampania, idusuario, descripcion } = req.body;
@@ -26,9 +23,6 @@ export const agregarCandidato = async (req: Request, res: Response) => {
   }
 };
 
-/**
- * 🔹 Obtener candidatos de una campaña
- */
 export const obtenerCandidatosPorCampania = async (req: Request, res: Response) => {
   try {
     const { idcampania } = req.params;
@@ -45,9 +39,6 @@ export const obtenerCandidatosPorCampania = async (req: Request, res: Response) 
   }
 };
 
-/**
- * 🔹 Eliminar candidato
- */
 export const eliminarCandidato = async (req: Request, res: Response) => {
   try {
     const { idcampania, idusuario } = req.params;

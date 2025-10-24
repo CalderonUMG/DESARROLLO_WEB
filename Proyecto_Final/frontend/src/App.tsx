@@ -7,8 +7,8 @@ import Navbar from "./components/Navbar/Navbar";
 import Register from "./pages/Register/Register";
 import HomeUsuario from "./pages/HomeUsuario/HomeUsuario";
 import AdminHome from "./pages/AdminHome/AdminHome";
-import CampaniaPage from "./pages/AdminHome/Campania/Campania"; // ✅ tu nueva página de campañas
-import AdminLayout from "./layouts/AdminLayout"; // ✅ el layout que mantiene el NavbarAdmin
+import CampaniaPage from "./pages/AdminHome/Campania/Campania";
+import AdminLayout from "./layouts/AdminLayout";
 import NuevaCampania from "./pages/AdminHome/Campania/NuevaCampania/NuevaCampania";
 import Candidatos from "./pages/Candidatos/Candidatos";
 import AgregarCandidato from "./pages/Candidatos/AgregarCandidato/AgregarCandidato";
@@ -17,11 +17,9 @@ import Votacion from "./pages/Votacion/Votacion";
 function AppContent() {
   const location = useLocation();
 
-  // 👇 rutas donde NO quieres mostrar el navbar general
   const hideNavbarPaths = ["/home-usuario", "/admin", "/admin/campanias", "/admin/candidatos", "/admin/votaciones", "/admin/reportes"];
   const shouldHideNavbar = hideNavbarPaths.some((path) => location.pathname.startsWith(path));
 
-  // 👇 rutas donde NO quieres mostrar el footer (opcional)
   const hideFooterPaths = ["/admin"];
   const shouldHideFooter = hideFooterPaths.some((path) => location.pathname.startsWith(path));
 

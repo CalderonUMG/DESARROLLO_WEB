@@ -19,7 +19,6 @@ const HomeUsuario: React.FC = () => {
       const usuario = localStorage.getItem("usuario");
       const token = localStorage.getItem("token");
 
-      // 🔹 Si no hay sesión activa → redirigir al login
       if (!usuario || !token) {
         navigate("/login");
         return;
@@ -29,7 +28,6 @@ const HomeUsuario: React.FC = () => {
       setNombreUsuario(userData.nombre || "Usuario");
 
       try {
-        // 🔹 Verificar token en backend
         const res = await fetch("https://desarrollo-web-1nh5.onrender.com/api/auth/verify", {
           method: "GET",
           headers: { Authorization: `Bearer ${token}` },
@@ -42,7 +40,6 @@ const HomeUsuario: React.FC = () => {
           return;
         }
 
-        // 🔹 Token válido → cargar campañas habilitadas
         await cargarCampaniasHabilitadas(token);
       } catch (error) {
         console.error("Error al verificar token:", error);
@@ -57,7 +54,6 @@ const HomeUsuario: React.FC = () => {
     verificarTokenYCargar();
   }, [navigate]);
 
-  // 🔹 Obtener campañas con estado habilitado
   const cargarCampaniasHabilitadas = async (token: string) => {
     try {
       const response = await fetch("https://desarrollo-web-1nh5.onrender.com/api/campanias/habilitadas", {
@@ -89,10 +85,9 @@ const HomeUsuario: React.FC = () => {
 
   return (
     <div className="home-usuario-container">
-      {/* 🧭 Encabezado */}
       <header className="home-header">
         <div className="header-left">
-          <h3>👋 Bienvenido, {nombreUsuario}</h3>
+          <h3>Bienvenido, {nombreUsuario}</h3>
         </div>
         <div className="header-right">
           <button className="btn-logout" onClick={handleLogout}>
@@ -101,7 +96,6 @@ const HomeUsuario: React.FC = () => {
         </div>
       </header>
 
-      {/* 🗳️ Contenido */}
       <main className="home-content">
         <h2 className="titulo-principal">Campañas Disponibles</h2>
 

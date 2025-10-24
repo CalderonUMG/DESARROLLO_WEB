@@ -16,7 +16,6 @@ const AgregarCandidato: React.FC = () => {
   const [candidatos, setCandidatos] = useState<Candidato[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // ✅ Validar token y cargar candidatos de la campaña
   useEffect(() => {
     const verificarTokenYCargar = async () => {
       const token = localStorage.getItem("token");
@@ -72,7 +71,6 @@ const AgregarCandidato: React.FC = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  // ✅ Agregar candidato
   const handleAgregar = async (e: React.FormEvent) => {
     e.preventDefault();
     const token = localStorage.getItem("token");
@@ -99,7 +97,7 @@ const AgregarCandidato: React.FC = () => {
       const data = await response.json();
       if (!response.ok) throw new Error(data.message);
 
-      alert("✅ Candidato agregado correctamente");
+      alert("Candidato agregado correctamente");
       setFormData({ colegiado: "", descripcion: "" });
       await cargarCandidatos(token!);
     } catch (error: any) {
@@ -107,7 +105,7 @@ const AgregarCandidato: React.FC = () => {
     }
   };
 
-  // ✅ Eliminar candidato
+  //Eliminar candidato
   const handleEliminar = async (colegiado: string) => {
     const token = localStorage.getItem("token");
     if (!window.confirm("¿Desea eliminar este candidato?")) return;
@@ -124,7 +122,7 @@ const AgregarCandidato: React.FC = () => {
       const data = await response.json();
       if (!response.ok) throw new Error(data.message);
 
-      alert("🗑️ Candidato eliminado correctamente");
+      alert("Candidato eliminado correctamente");
       await cargarCandidatos(token!);
     } catch (error: any) {
       alert(error.message || "Error al eliminar candidato");

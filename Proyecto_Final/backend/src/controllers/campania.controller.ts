@@ -60,7 +60,7 @@ export const obtenerCampaniasHabilitadas = async (req: Request, res: Response) =
   try {
     const campanias = await Campania.findAll({
       where: { estado: 1 },
-      order: [["id", "ASC"]], // 👈 ajustado al nombre correcto
+      order: [["id", "ASC"]],
     });
 
     res.status(200).json(campanias);

@@ -1,8 +1,5 @@
 @import '../../styles/variables';
 
-/* ============================= */
-/* 🔹 Contenedor principal */
-/* ============================= */
 .admin-home {
   min-height: 100vh;
   background: linear-gradient(
@@ -15,9 +12,6 @@
   flex-direction: column;
 }
 
-/* ============================= */
-/* 🔹 Contenido central */
-/* ============================= */
 .admin-content {
   flex: 1;
   display: flex;
@@ -26,9 +20,6 @@
   padding: 2rem;
 }
 
-/* ============================= */
-/* 🔹 Tarjeta central */
-/* ============================= */
 .admin-card {
   background-color: $color-fondo;
   border-radius: 16px;

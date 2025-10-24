@@ -32,13 +32,11 @@ const Login = () => {
 
       if (!response.ok) throw new Error(data.message);
 
-      // ✅ Guardar token y usuario
       localStorage.setItem("token", data.token);
       localStorage.setItem("usuario", JSON.stringify(data.user));
-      localStorage.setItem("idUsuario", data.user.colegiado); // ⚠️ importante
+      localStorage.setItem("idUsuario", data.user.colegiado);
 
 
-      // ✅ Redirigir según el rol
       switch (data.user.rol) {
         case 1:
           navigate("/home-usuario");

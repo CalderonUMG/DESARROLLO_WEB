@@ -1,8 +1,5 @@
 @import '../../styles/variables';
 
-/* ============================= */
-/* 🔹 Sección principal */
-/* ============================= */
 .panel-navbar {
   width: 100%;
   display: flex;
@@ -35,9 +32,6 @@
   }
 }
 
-/* ============================= */
-/* 🔹 Encabezado superior */
-/* ============================= */
 .panel-navbar__top {
  background: linear-gradient(90deg, $color-secundario 0%, $color-primario 100%);
   color: $color-fondo;
@@ -67,9 +61,6 @@
   }
 }
 
-/* ============================= */
-/* 🔹 Menú inferior */
-/* ============================= */
 .panel-navbar__menu {
   display: flex;
   justify-content: center;

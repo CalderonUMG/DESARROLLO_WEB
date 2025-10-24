@@ -9,13 +9,11 @@ const AdminHome: React.FC = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    // Si no hay token, redirigir inmediatamente
     if (!token) {
       navigate("/login");
       return;
     }
 
-    // Validar token en el backend
     const verificarToken = async () => {
       try {
         const response = await fetch("https://desarrollo-web-1nh5.onrender.com/api/auth/verify", {
@@ -25,7 +23,6 @@ const AdminHome: React.FC = () => {
           },
         });
 
-        // Si el backend responde con error, forzar logout
         if (!response.ok) {
           localStorage.removeItem("token");
           localStorage.removeItem("usuario");

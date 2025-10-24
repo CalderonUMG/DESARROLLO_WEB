@@ -32,7 +32,6 @@ const Votacion: React.FC = () => {
   const [haVotado, setHaVotado] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  // ✅ Validar token y cargar candidatos
   useEffect(() => {
     const verificarTokenYCargar = async () => {
       const token = localStorage.getItem("token");
@@ -67,7 +66,6 @@ const Votacion: React.FC = () => {
   }, [campania, navigate]);
 
 
-  // 🔹 Cargar candidatos
   const cargarCandidatos = async (token: string, idcampania: number) => {
     try {
       const res = await fetch(
@@ -82,10 +80,9 @@ const Votacion: React.FC = () => {
     }
   };
 
-  // 🗳️ Registrar voto
   const handleVotar = async (id: number) => {
     if (haVotado) {
-      alert("⚠️ Ya has votado en esta campaña.");
+      alert("Ya has votado en esta campaña.");
       return;
     }
 
@@ -110,7 +107,7 @@ const Votacion: React.FC = () => {
       const data = await res.json();
       if (!res.ok) throw new Error(data.message);
 
-      alert("✅ ¡Tu voto ha sido registrado correctamente!");
+      alert("¡Tu voto ha sido registrado correctamente!");
       setVotoSeleccionado(id);
       setHaVotado(true);
 
@@ -131,7 +128,6 @@ const Votacion: React.FC = () => {
 
   return (
     <div className="votacion-container">
-      {/* 🧭 Encabezado */}
       <header className="home-header">
         <div className="header-left">
           <h3>Campaña: {campania ? campania.nombre : "Campaña Desconocida"}</h3>
@@ -143,7 +139,6 @@ const Votacion: React.FC = () => {
         </div>
       </header>
 
-      {/* 📊 Gráfica superior */}
       <section className="grafica-section">
         <h2>Resultados Parciales</h2>
         <ResponsiveContainer width="100%" height={300}>
@@ -157,7 +152,6 @@ const Votacion: React.FC = () => {
         </ResponsiveContainer>
       </section>
 
-      {/* 🧍‍♂️ Candidatos */}
       <section className="candidatos-section">
         <h2>Candidatos</h2>
         <div className="candidatos-grid">

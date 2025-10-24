@@ -7,7 +7,7 @@ function TestConnection() {
     useEffect(() => {
         api.get('/usuarios/ping')
             .then((res) => setMensaje((res.data as any).mensaje))
-            .catch(() => setMensaje('Error al conectar con backend ❌'));
+            .catch(() => setMensaje('Error al conectar con backend'));
 
     }, []);
 

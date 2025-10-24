@@ -4,7 +4,6 @@ import { UsuarioVoto } from "../models/UsuarioVoto.js";
 export const verificarVoto = async (req: Request, res: Response) => {
   try {
     const { idcampania, idusuario } = req.params;
-    console.log("🧩 Parámetros recibidos:", idcampania, idusuario);
 
     if (!idcampania || !idusuario) {
       return res
@@ -39,7 +38,6 @@ export const registrarVoto = async (req: Request, res: Response) => {
       return res.status(400).json({ message: "Faltan datos del voto" });
     }
 
-    // Verificar si ya votó
     const existe = await UsuarioVoto.findOne({
       where: { idusuario, idcandidatocampaniacampania: idcampania }
     });
@@ -48,7 +46,6 @@ export const registrarVoto = async (req: Request, res: Response) => {
       return res.status(400).json({ message: "El usuario ya votó en esta campaña" });
     }
 
-    // Registrar el voto
     await UsuarioVoto.create({
       idusuario,
       idcandidatocampaniacampania: idcampania,

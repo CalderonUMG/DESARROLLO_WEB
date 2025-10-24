@@ -13,7 +13,7 @@ dotenv.config();
 
 const app = express();
 
-// ✅ Configuración CORS
+//CORS
 app.use(cors({
   origin: 'https://desarrollo-web-1-nrm7.onrender.com', // dominio del frontend
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
@@ -32,14 +32,10 @@ const PORT = process.env.PORT || 3000;
 (async () => {
   try {
     await sequelize.authenticate();
-    console.log("✅ Conexión a PostgreSQL establecida correctamente.");
     app.listen(PORT, () => console.log(`🚀 Servidor corriendo en puerto ${PORT}`));
   } catch (error) {
-    console.error("❌ Error al conectar a la BD:", error);
+    console.error("Error al conectar a la BD:", error);
   }
 })();
 
-/*sequelize.sync().then(() => {
-  console.log('✅ Conectado a PostgreSQL y tablas sincronizadas');
-  app.listen(PORT, () => console.log(`🚀 Servidor corriendo en puerto ${PORT}`));
-});*/
+
