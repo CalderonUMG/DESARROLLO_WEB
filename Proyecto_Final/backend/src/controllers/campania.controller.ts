@@ -1,9 +1,10 @@
 import { Request, Response } from "express";
 import { Campania } from "../models/Campania.js"; // asegúrate de tener este modelo
+import { Estado } from "../models/Estado.js";
 
 export const crearCampania = async (req: Request, res: Response) => {
   try {
-    const { nombre, descripcion, cantidadvotos ,fechainicio, fechafin, admincreacion } = req.body;
+    const { nombre, descripcion, cantidadvotos, fechainicio, fechafin, admincreacion } = req.body;
 
     // Validar fechas
     if (new Date(fechainicio) > new Date(fechafin)) {
@@ -28,18 +29,27 @@ export const crearCampania = async (req: Request, res: Response) => {
   }
 };
 
-export const obtenerCampanias = async (req: Request, res: Response) => {
+
+
+export const obtenerCampanias = async (_req: Request, res: Response) => {
   try {
-    const campanias = await Campania.findAll({
-      order: [["id", "DESC"]],
+    const lista = await Campania.findAll({
+      include: [
+        {
+          model: Estado,
+          attributes: ["nombre"], // 🔹 solo queremos el nombre
+        },
+      ],
+      order: [["id", "ASC"]],
     });
 
-    res.status(200).json(campanias);
-  } catch (error: any) {
+    res.json(lista);
+  } catch (error) {
     console.error("Error al obtener campañas:", error);
-    res.status(500).json({ message: "Error al obtener campañas", error: error.message });
+    res.status(500).json({ message: "Error al obtener campañas" });
   }
 };
+
 
 export const obtenerCampaniasActivas = async (req: Request, res: Response) => {
   try {
@@ -74,4 +84,26 @@ export const obtenerCampaniasHabilitadas = async (req: Request, res: Response) =
 };
 
 
+
+/** 🔹 Cambiar estado de campaña a inactivado */
+export const inactivarCampania = async (req: Request, res: Response) => {
+  try {
+    const id = Number(req.params.id);
+
+    const campania = await Campania.findByPk(id, { raw: false });
+    if (!campania) return res.status(404).json({ message: "Campaña no encontrada" });
+
+    // Forma 1:
+    await campania.update({ estado: 2 });  // marca cambiado y persiste
+
+    // Forma 2 (equivalente):
+    // campania.set('estado', 0);
+    // await campania.save({ fields: ['estado'] });
+
+    return res.json({ message: "Campaña inactivada correctamente", campania });
+  } catch (error) {
+    console.error("Error al inactivar campaña:", error);
+    res.status(500).json({ message: "Error al inactivar campaña" });
+  }
+};
 

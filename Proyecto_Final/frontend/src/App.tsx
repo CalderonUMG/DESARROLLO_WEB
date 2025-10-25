@@ -7,12 +7,14 @@ import Navbar from "./components/Navbar/Navbar";
 import Register from "./pages/Register/Register";
 import HomeUsuario from "./pages/HomeUsuario/HomeUsuario";
 import AdminHome from "./pages/AdminHome/AdminHome";
-import CampaniaPage from "./pages/AdminHome/Campania/Campania";
-import AdminLayout from "./layouts/AdminLayout";
+import CampaniaPage from "./pages/AdminHome/Campania/Campania"; // ✅ tu nueva página de campañas
+import AdminLayout from "./layouts/AdminLayout"; // ✅ el layout que mantiene el NavbarAdmin
 import NuevaCampania from "./pages/AdminHome/Campania/NuevaCampania/NuevaCampania";
 import Candidatos from "./pages/Candidatos/Candidatos";
 import AgregarCandidato from "./pages/Candidatos/AgregarCandidato/AgregarCandidato";
 import Votacion from "./pages/Votacion/Votacion";
+import VotacionesAdmin from "./pages/AdminHome/VotacionesAdmin/VotacionesAdmin";
+import DetalleVotacion from "./pages/AdminHome/VotacionesAdmin/DetalleVotacion/DetalleVotacion";
 
 function AppContent() {
   const location = useLocation();
@@ -48,7 +50,8 @@ function AppContent() {
           <Route path="candidatos" element={<Candidatos />} />
           <Route path="candidatos/agregar" element={<AgregarCandidato />} />
 
-          <Route path="reportes" element={<div>Reportes</div>} />
+          <Route path="votacionesAdmin" element={<VotacionesAdmin />} />
+          <Route path="votaciones/detalle" element={<DetalleVotacion />} /> {/* ✅ */}
         </Route>
       </Routes>
 

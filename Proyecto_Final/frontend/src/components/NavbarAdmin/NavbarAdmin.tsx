@@ -57,16 +57,10 @@ const PanelNavbar: React.FC<PanelNavbarProps> = ({ tipo = "admin" }) => {
             Candidatos
           </button>
           <button
-            className={location.pathname.includes("/votaciones") ? "active" : ""}
-            onClick={() => navigateTo("/admin/votaciones")}
+            className={location.pathname.includes("/votacionesAdmin") ? "active" : ""}
+            onClick={() => navigateTo("/admin/votacionesAdmin")}
           >
             Votaciones
-          </button>
-          <button
-            className={location.pathname.includes("/reportes") ? "active" : ""}
-            onClick={() => navigateTo("/admin/reportes")}
-          >
-            Reportes
           </button>
         </nav>
       )}

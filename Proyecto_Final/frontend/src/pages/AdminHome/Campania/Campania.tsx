@@ -8,11 +8,13 @@ interface Campania {
   nombre: string;
   descripcion: string;
   cantidadvotos: number;
-  estado: string;
+  estado: number;
+  estadoInfo?: { nombre: string };
   fechainicio: string;
   fechafin: string;
   admincreacion?: string;
 }
+
 
 const CampaniaPage: React.FC = () => {
   const [campanias, setCampanias] = useState<Campania[]>([]);
@@ -76,9 +78,39 @@ const CampaniaPage: React.FC = () => {
   const handleNuevaCampania = () => navigate("/admin/campanias/nueva");
 
   const handleModificar = (id: number) => console.log("Modificar campaña", id);
-  const handleEliminar = (id: number) => console.log("Eliminar campaña", id);
 
   const fechaActual = new Date();
+
+  const handleEliminar = async (id: number) => {
+    const confirmar = window.confirm("¿Deseas inactivar esta campaña?");
+    if (!confirmar) return;
+
+    const token = localStorage.getItem("token");
+    if (!token) {
+      alert("No se encontró token de autenticación");
+      return;
+    }
+
+    try {
+      const res = await fetch(`https://desarrollo-web-1nh5.onrender.com/api/campanias/${id}/inactivar`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message);
+
+      alert("Campaña inactivada correctamente");
+
+    } catch (error: any) {
+      console.error("Error al inactivar campaña:", error);
+      alert("No se pudo inactivar la campaña");
+    }
+  };
+
 
   if (loading) return <p>Cargando...</p>;
 
@@ -107,14 +139,14 @@ const CampaniaPage: React.FC = () => {
         <tbody>
           {campanias.map((campania) => {
             const fechaInicio = new Date(campania.fechainicio);
-            const accionesHabilitadas = fechaActual <= fechaInicio;
+            const accionesHabilitadas = fechaActual <= fechaInicio && Number(campania.estado) !== 2;
 
             return (
               <tr key={campania.id}>
                 <td>{campania.nombre}</td>
                 <td>{campania.descripcion}</td>
                 <td>{campania.cantidadvotos}</td>
-                <td>{campania.estado}</td>
+                <td>{campania.estadoInfo?.nombre || "—"}</td>
                 <td>{format(fechaInicio, "dd/MM/yyyy")}</td>
                 <td>{format(new Date(campania.fechafin), "dd/MM/yyyy")}</td>
                 <td>{campania.admincreacion || "—"}</td>

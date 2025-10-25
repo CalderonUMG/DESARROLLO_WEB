@@ -124,6 +124,11 @@ const Votacion: React.FC = () => {
 
   const handleVolver = () => navigate("/home-usuario");
 
+  const datosGrafica = candidatos.map(c => ({
+    nombre: c.usuario?.nombre || "Desconocido",
+    votos: c.votos ?? 0
+  }));
+
   if (loading) return <p>Cargando...</p>;
 
   return (
@@ -141,15 +146,25 @@ const Votacion: React.FC = () => {
 
       <section className="grafica-section">
         <h2>Resultados Parciales</h2>
-        <ResponsiveContainer width="100%" height={300}>
-          <BarChart data={candidatos}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="nombre" />
-            <YAxis />
-            <Tooltip />
-            <Bar dataKey="votos" fill="#1e90ff" />
-          </BarChart>
-        </ResponsiveContainer>
+
+        {candidatos.length === 0 ? (
+          <p>No hay datos de candidatos disponibles.</p>
+        ) : (
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart
+              data={candidatos.map(c => ({
+                nombre: c.usuario?.nombre || "Desconocido",
+                votos: c.votos ?? 0,
+              }))}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="nombre" />
+              <YAxis />
+              <Tooltip />
+              <Bar dataKey="votos" fill="#1e90ff" />
+            </BarChart>
+          </ResponsiveContainer>
+        )}
       </section>
 
       <section className="candidatos-section">

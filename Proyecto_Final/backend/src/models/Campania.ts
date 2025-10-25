@@ -1,4 +1,4 @@
-import { Table, Column, Model, DataType, ForeignKey } from 'sequelize-typescript';
+import { Table, Column, Model, DataType, ForeignKey, BelongsTo } from 'sequelize-typescript';
 import { Estado } from './Estado.js';
 import { Administrador } from './Administrador.js';
 
@@ -19,6 +19,9 @@ export class Campania extends Model {
   @ForeignKey(() => Estado)
   @Column({ type: DataType.INTEGER, allowNull: false })
   estado!: number;
+
+  @BelongsTo(() => Estado)
+  estadoInfo!: Estado; 
 
   @Column({ type: DataType.DATE, allowNull: false })
   fechainicio!: Date;
